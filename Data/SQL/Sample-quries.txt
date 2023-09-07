@@ -1,0 +1,12 @@
+
+
+SELECT c1->'user'->>'screenName' from "ChirpMessages" cm;
+
+SELECT c1->'user' from "ChirpMessages" cm;
+
+SELECT c1->'messageText' from "ChirpMessages" cm;
+
+
+SELECT cm.c1->>'messageText' from "ChirpUsers" cu, "ChirpMessages" cm
+         where cm.c1->'user'->>'screenName' = cu.c1->>'screenName';
+
