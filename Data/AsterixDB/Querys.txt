@@ -1,0 +1,14 @@
+    USE TinySocial;
+
+    SELECT VALUE user
+    FROM GleambookUsers user
+    WHERE user.id = 8;
+
+
+    USE TinySocial;
+
+    SELECT VALUE user
+    FROM GleambookUsers user
+    WHERE user.id >= 2 AND user.id <= 4;
+
+

@@ -1,0 +1,22 @@
+USE TinySocial;
+
+    CREATE DATASET GleambookUsers(GleambookUserType)
+        PRIMARY KEY id;
+
+    CREATE DATASET GleambookMessages(GleambookMessageType)
+        PRIMARY KEY messageId;
+
+    CREATE DATASET ChirpUsers(ChirpUserType)
+        PRIMARY KEY screenName;
+
+    CREATE DATASET ChirpMessages(ChirpMessageType)
+        PRIMARY KEY chirpId
+        hints(cardinality=100);
+
+    CREATE INDEX gbUserSinceIdx on GleambookUsers(userSince);
+    CREATE INDEX gbAuthorIdx on GleambookMessages(authorId) TYPE btree;
+    CREATE INDEX gbSenderLocIndex on GleambookMessages(senderLocation) TYPE rtree;
+    CREATE INDEX gbMessageIdx on GleambookMessages(message) TYPE keyword;
+
+    SELECT VALUE ds FROM Metadata.`Dataset` ds;
+    SELECT VALUE ix FROM Metadata.`Index` ix;
